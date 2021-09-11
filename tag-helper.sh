@@ -1,6 +1,11 @@
 #!/bin/sh
 #This script is created and manage by @Saurabh Belwal
 #It takes care of generating ci/cd supported environment variables
+# Tagging approach
+# Pre-requisites Valid git repository
+# Logic : to create tag
+# if branch is main/master then based on last git commit timestamp it will create version using format i.e. yyyymmddhhmmss.<commit_hash>
+# For feature branch (other than main/master) in format : yyyymmddhhmmss.<commit_hash>-<branch_name>
 
 MASTER_BRANCH="master"
 MAIN_BRANCH="main"
@@ -11,6 +16,7 @@ VERSION=$DEFAULT_VERSION
 CURRENT_BRANCH=''
 IS_TAGGING_NEED_TO_PERFORMED=false
 VERBOSE=false
+LAST_COMMIT_HASH=''
 
 
 function help()  {
@@ -28,15 +34,19 @@ function identify_branch_name() {
    CURRENT_BRANCH=$(git rev-parse --abbrev-ref HEAD 2>/dev/null || echo 'NOT_FOUND')
 }
 
+function get_last_git_commits_hash() {
+  LAST_COMMIT_HASH=$( git rev-parse --short HEAD 2>/dev/null || echo '')
+}
+
 function generate_new_version() {
    version=$(date -d "$LAST_COMMIT_TSP"  +'%Y%m%d%H%M%S')
    if [ $CURRENT_BRANCH == "main" ] || [ $CURRENT_BRANCH == "master" ] 
    then
       # echo "Performing things for master branch"
-      VERSION=$version
+      VERSION=$version"."$LAST_COMMIT_HASH
    else 
       # echo "Performing things for feature branch"
-      VERSION=$version+"-"$CURRENT_BRANCH
+      VERSION=$version"."$LAST_COMMIT_HASH"-"$CURRENT_BRANCH
    fi
 }
 
@@ -61,7 +71,9 @@ function main() {
    fi   
    # echo "Branch is: $CURRENT_BRANCH"
    # Identifying the last commit timestamp to derive the version
-   get_last_git_commits_timestamp 
+   get_last_git_commits_timestamp
+
+   get_last_git_commits_hash
    
    generate_new_version
 
