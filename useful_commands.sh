@@ -1,7 +1,10 @@
 #!/bin/sh
 # This file contain common useful commands which can be use in the linux system
 
-##Basic commands for io operation on files
+#Basic commands for io operation on files
+
+## Current directory
+pwd 
 
 ## move/select to a particular directory
 # cd <path_of directory> e.g cd . | cd /opt | cd tomcat | cd ~/.ssh
@@ -87,3 +90,30 @@ tail -500f catalina.out | grep "Error" # Filtering out Error from the logs which
 ps -ef
 
 ps -ef | grep "java" # filter out a specific process using grep commands
+
+
+
+# Disk usage
+## du [-a[all files and directory], -h[human readbale], -c[Displays grand total], -s[Display only total]]
+du -h
+
+# Disk free
+## df [-h|-a|]
+df -h
+
+# Changing permission for a file
+# chmod +rwx filename to add permissions.
+# chmod -rwx directoryname to remove permissions.
+# chmod +x filename to allow executable permissions.
+# chmod -wx filename to take out write and executable permissions.
+# Note that “r” is for read, “w” is for write, and “x” is for execute. 
+chmod +x <file_name>
+
+# Chanfing owning group for a file or directory
+# syntax: chown USER FILE
+# chown user1 file1 
+# chown user:userGroup file1
+chown <username> <fileName> 
+
+
+
