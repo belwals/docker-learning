@@ -18,6 +18,11 @@ docker images
 # e.g. docker container ls
 
 
+#  To remove docker image from the container
+docker images rm <Imabge_Name>
+e.g. docker images rm goalng-demo-app
+
+
 # Command to run  a image and allowing network routing 
 docker container run <image>[:<tag_name>] [detach, publish port]
 #e.g. `docker container run --publish 8800:80 --detach nginx`
@@ -41,4 +46,7 @@ docker pull <Imabge_Name><:[Tag_name]>
 # e.g. docker pull nginx:1.25
 
 
+# Create dockerimage using dockerFile
+docker build -t <tag_name> <location-of-docker-file>
+docker build -t "goalng-demo-app" .
 
