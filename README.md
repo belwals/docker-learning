@@ -1,2 +1,2 @@
-# shell-commands
-Repository groups handy shell commands to work on terminal
+# docker-learning
+Repository is created for learning docker and documenting it for future reference. 
