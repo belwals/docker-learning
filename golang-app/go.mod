@@ -1,3 +1,3 @@
-module github.com/belwals/docker-learning/golang-app
+module github.com/belwals/docker-learning/golang-web-app
 
-go 1.21
+go 1.21.6
