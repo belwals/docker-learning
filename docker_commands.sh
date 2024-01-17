@@ -23,11 +23,6 @@ docker images rm <Imabge_Name>
 e.g. docker images rm goalng-demo-app
 
 
-# Command to run  a image and allowing network routing 
-docker container run <image>[:<tag_name>] [detach, publish port]
-#e.g. `docker container run --publish 8800:80 --detach nginx`
-# OR docker run --name mongo -d mongo , we can give container's name otherwise docker engine will generate a unqique name automatically
-
 # Command to return all container started/Stopped
 docker container ls -a
 
@@ -46,7 +41,29 @@ docker pull <Imabge_Name><:[Tag_name]>
 # e.g. docker pull nginx:1.25
 
 
-# Create dockerimage using dockerFile
+#Create dockerimage using dockerFile
 docker build -t <tag_name> <location-of-docker-file>
 docker build -t "goalng-demo-app" .
 
+
+# Command to run  a image and allowing network routing 
+docker container run <image>[:<tag_name>] [detach, publish port]
+#e.g. `docker container run --publish 8800:80 --detach nginx`
+# OR docker run --name mongo -d mongo , we can give container's name otherwise docker engine will generate a unqique name automatically
+
+# Docker login to authticate for docker image push to docker hub
+docker login [OPTIONS] [SERVER]
+docker login # if login already then no need to supply any argument
+docker login localhost:8080  # for self hosted registry
+docker login --username foo --password <value>
+cat ~/my_password.txt | docker login --username foo --password-stdin # or take password from standard input file.
+
+# Tag a docker image
+# command
+docker tag SOURCE_IMAGE[:TAG] TARGET_IMAGE[:TAG]
+e.g. docker tag golang-demo-app  myusername/golang-demo-app:v1.0.0 
+
+
+# Pushing image to Docker hub
+# docker push [OPTIONS] NAME[:TAG]
+e.g. docker push myusername/golang-demo-app:v1.0.0

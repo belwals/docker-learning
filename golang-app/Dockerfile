@@ -30,7 +30,7 @@ RUN chown -R appUser:app /app/main
 USER appUser
 
 # Exposing application port to 4000
-EXPOSE 4000
+EXPOSE 8080
 
 #  Executing the application
 CMD /app/main
