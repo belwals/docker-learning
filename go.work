@@ -1,6 +1,6 @@
 go 1.21.6
 
 use (
-	./golang-app
+	./dockerize-golang-web-app
 	./multi-stage-build
 )

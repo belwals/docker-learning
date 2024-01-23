@@ -16,12 +16,14 @@ docker images
 # e.g. docker ps
 # New -- docker <managed command> <sub commands> [option]
 # e.g. docker container ls
-
+docker ps
 
 #  To remove docker image from the container
 docker images rm <Imabge_Name>
 e.g. docker images rm goalng-demo-app
 
+# To remove dangling images from the docker
+docker system prune -a #need to be careful with this command, it will remove all stopped containers, images and networks without a container associated, and build cache.
 
 # Command to return all container started/Stopped
 docker container ls -a
@@ -53,6 +55,12 @@ docker build --target build -t "my-docker-image" .
 docker container run <image>[:<tag_name>] [detach, publish port]
 #e.g. `docker container run --publish 8800:80 --detach nginx`
 # OR docker run --name mongo -d mongo , we can give container's name otherwise docker engine will generate a unqique name automatically
+docker run -p 5173:5172 my-docker-image
+
+# command to stop conatiner once launced using docker run
+# Usage:  docker stop [OPTIONS] CONTAINER [CONTAINER...]
+# e.g. docker stop <container_id/ container_name>
+docker stp "0c2cccc96aa4"
 
 # Docker login to authticate for docker image push to docker hub
 docker login [OPTIONS] [SERVER]
@@ -70,3 +78,8 @@ e.g. docker tag golang-demo-app  myusername/golang-demo-app:v1.0.0
 # Pushing image to Docker hub
 # docker push [OPTIONS] NAME[:TAG]
 e.g. docker push myusername/golang-demo-app:v1.0.0
+
+# Special command to mount volume from the local to reflect updates on the local will be reflected on the image.
+# -v "$(pwd):/app" - mounting the local code to image volumne
+# -v /app/node_modules we are creating one more volume mount for node modules from local to image
+docker run -p 5173:5173 -v "$(pwd):/app" -v /app/node_modules react-app

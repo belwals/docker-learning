@@ -11,8 +11,8 @@ Repository is created for learning docker and documenting it for future referenc
 
 ## Learning repo contains multiple Docker image examples
 
-- hello-world-golang-app -: Hello world go application, Docker image build the hello world application's image.
-- golang-app -: contains a go rest based application, which spans a rest application and exposes rest endpoints.
+- dockerize-hello-world-golang-app -: Hello world go application, Docker image build the hello world application's image.
+- docekerize-golang-app -: contains a go rest based application, which spans a rest application and exposes rest endpoints.
                 Docker image has image building, and creation of application user.
 - multi-stage-build -: To get understanding of a multi-stage build added two stage of image building.
 
