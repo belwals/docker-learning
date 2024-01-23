@@ -1,3 +1,6 @@
 go 1.21.6
 
-use ./golang-app
+use (
+	./golang-app
+	./multi-stage-build
+)

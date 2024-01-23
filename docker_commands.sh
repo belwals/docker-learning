@@ -45,6 +45,9 @@ docker pull <Imabge_Name><:[Tag_name]>
 docker build -t <tag_name> <location-of-docker-file>
 docker build -t "goalng-demo-app" .
 
+# To target a particular stage while building a docker image
+# docker build --tagerget <stage_name> -t <image_name> .
+docker build --target build -t "my-docker-image" .
 
 # Command to run  a image and allowing network routing 
 docker container run <image>[:<tag_name>] [detach, publish port]
