@@ -1,24 +1,30 @@
-# docker-learning
-Repository is created for learning docker and documenting it for future reference. 
+# Docker Learning Repository
 
+Welcome to the Docker Learning Repository! This space is dedicated to the exploration and documentation of Docker concepts for educational purposes, providing valuable insights for future reference.
 
-## Theoritical Information abount the docker 
-[Docker learning](./docker_readme.md)
+## Theoretical Information about Docker
 
-## Docker commands, which are useful to build an image,
-[Docker commands](./docker_commands.sh)
+In this section, you will find comprehensive theoretical information about Docker, covering fundamental concepts and principles related to containerization.[Docker learning](./docker_readme.md)
 
+## Docker Commands
 
-## Learning repo contains multiple Docker image examples
+Discover a set of essential Docker commands designed to assist you in building Docker images and effectively managing containers. [Docker commands](./docker_commands.sh)
 
-- dockerize-hello-world-golang-app -: Hello world go application, Docker image build the hello world application's image.
-- docekerize-golang-app -: contains a go rest based application, which spans a rest application and exposes rest endpoints.
-                Docker image has image building, and creation of application user.
-- multi-stage-build -: To get understanding of a multi-stage build added two stage of image building.
+## Learning Repository Content
 
-                -  build: stage is responsible for creatiuing application's executable
-                -  runner: stage for re-using already build stage and running on the base image.
+Explore various Docker image examples within the learning repository, each illustrating different use cases and scenarios.
 
+* dockerize-hello-world-golang-app
+    *  A straightforward "Hello World" Go application.
+    *  Walks through the process of building a Docker image for a basic Go application.
+* dockerize-golang-app
+    * Features a Go-based RESTful application.
+    * Showcases a REST application with exposed endpoints.
+* multi-stage-build
+  * Demonstrates a multi-stage build with two distinct stages of image creation:
+      * build stage: Responsible for generating the application's executable.
+      * runner stage: Reuses the pre-built stage and runs on the base image.
+    The Docker image encompasses both the image building process and the creation of an application user.
 
 ## Sample go docker image
 ```
@@ -60,3 +66,5 @@ EXPOSE 4000
 CMD /app/main
 
 ```
+
+Feel free to delve into the contents of this Docker learning repository. The provided examples serve as practical demonstrations, enhancing your understanding of Docker concepts. Contributions are welcome as we collectively expand our knowledge of Docker!
