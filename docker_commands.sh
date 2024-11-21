@@ -83,3 +83,6 @@ e.g. docker push myusername/golang-demo-app:v1.0.0
 # -v "$(pwd):/app" - mounting the local code to image volumne
 # -v /app/node_modules we are creating one more volume mount for node modules from local to image
 docker run -p 5173:5173 -v "$(pwd):/app" -v /app/node_modules react-app
+
+# command to generate the multi container application
+docker compose up

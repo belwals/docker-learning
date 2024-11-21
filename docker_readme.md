@@ -12,7 +12,8 @@ An executable application artifact including source code and enviornment configu
 - OS Layer (Linux)
 
 
- Docker containers:
- A running instance of an image
+ Docker container:
+ A running instance of an image.
 
- 
+ Docker compose:
+ A process to define and mange multiple instance of application using a sigle yaml file.
